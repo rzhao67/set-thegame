@@ -1,3 +1,5 @@
+package SetGame;
+
 public class Card {
     private int color;
     private int fill;

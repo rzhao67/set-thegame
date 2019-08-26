@@ -1,9 +1,17 @@
+package SetGame;
+
+import SetGame.Card;
+
 import java.util.HashSet;
 import java.util.Set;
 import java.util.Random;
 
 public class Game {
-    private Set<Card> board = new HashSet<>();
+    protected static Set<Card> board = new HashSet<>();
+
+    Game() {
+        initializeBoard();
+    }
 
     public void addCard(Set board) {
         Random randNums = new Random(1);
