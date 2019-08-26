@@ -1,19 +1,17 @@
 package SetGame;
 
-import SetGame.Card;
-
 import java.util.HashSet;
 import java.util.Set;
 import java.util.Random;
 
 public class Game {
-    protected static Set<Card> board = new HashSet<>();
+    private static Set<Card> board = new HashSet<>();
 
     Game() {
         initializeBoard();
     }
 
-    public void addCard(Set board) {
+    private void addCard(Set board) {
         Random randNums = new Random(1);
         int randColor = randNums.nextInt(4);
         int randFill = randNums.nextInt(4);
@@ -23,7 +21,7 @@ public class Game {
         board.add(newCard);
     }
 
-    public void initializeBoard() {
+    private void initializeBoard() {
         while (board.size() < 12) {
             addCard(board);
         }
