@@ -1,10 +1,10 @@
 package SetGame;
 
 public class Card {
-    private int color;
-    private int fill;
-    private int shape;
-    private int count;
+    protected int color;
+    protected int fill;
+    protected int shape;
+    protected int count;
 
     Card(int c, int f, int s, int num) {
         color = c;

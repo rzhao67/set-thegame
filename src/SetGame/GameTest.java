@@ -11,7 +11,7 @@ class GameTest {
     @Test
     public static void testInitialize() {
         Game g = new Game();
-        assertEquals(g.board.size(), 12);
+        assertEquals(Game.board.size(), 12);
     }
 
     public static void main(String[] args) {
