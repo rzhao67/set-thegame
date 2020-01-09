@@ -46,7 +46,6 @@ public class Game {
     }
 
     public void collectSet(Card a, Card b, Card c) {
-        assertTrue(isSet(a, b, c));
         discard.add(a);
         discard.add(b);
         discard.add(c);
