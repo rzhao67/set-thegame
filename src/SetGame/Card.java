@@ -1,5 +1,7 @@
 package SetGame;
 
+import edu.princeton.cs.introcs.StdDraw;
+
 public class Card {
     protected int color;
     protected int fill;
@@ -11,6 +13,20 @@ public class Card {
         fill = f;
         shape = s;
         count = num;
+    }
+
+    public void drawCard(Card c) {
+        switch (c.color) {
+            case 1:
+                StdDraw.setPenColor(StdDraw.RED);
+                break;
+            case 2:
+                StdDraw.setPenColor(StdDraw.GREEN);
+                break;
+            case 3: //purple
+                StdDraw.setPenColor(138, 43, 226);
+                break;
+        }
     }
 
     public boolean equals(Card a, Card b) {

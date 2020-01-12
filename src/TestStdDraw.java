@@ -7,5 +7,6 @@ public class TestStdDraw {
         StdDraw.point(0.5, 0.5);
         StdDraw.setPenColor(StdDraw.MAGENTA);
         StdDraw.line(0.2, 0.2, 0.8, 0.2);
+        StdDraw.text(0.2, 0.2, "hello");
     }
 }

@@ -3,15 +3,19 @@ package SetGame;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.Random;
-import static org.junit.Assert.assertTrue;
+import java.util.ArrayList;
 
 public class Game {
-    protected static Set<Card> board = new HashSet<>();
-    private static Set<Card> discard = new HashSet<>();
-    private Random randNums = new Random(1);
+    public ArrayList<Card> board = new ArrayList<>();
+    public Set<Card> discard = new HashSet<>();
+    public Random randNums = new Random(1);
 
     Game() {
         initializeBoard();
+    }
+
+    public int size() {
+        return board.size();
     }
 
     private void addCard() {
@@ -20,7 +24,7 @@ public class Game {
         int randShape = randNums.nextInt(4);
         int randCount = randNums.nextInt(4);
         Card newCard = new Card(randColor, randFill, randShape, randCount);
-        if (discard.contains(newCard)) {
+        if (discard.contains(newCard) || board.contains(newCard)) {
             addCard();
         } else {
             board.add(newCard);
@@ -31,7 +35,7 @@ public class Game {
         board.remove(a);
     }
 
-    private void initializeBoard() {
+    public void initializeBoard() {
         while (board.size() < 12) {
             addCard();
         }
@@ -40,7 +44,7 @@ public class Game {
     private boolean isSet(Card a, Card b, Card c) {
         boolean colorDiff = (a.color != b.color) && (b.color != c.color) && (a.color != c.color);
         boolean fillDiff = (a.fill != b.fill) && (b.fill != c.fill) && (a.fill != c.fill);
-        boolean shapeDiff = (a.shape != b.shape) && (b.shape != c.shape) && (a.shape != c.shape);
+        boolean shapeDiff = (a.shape != b.shape) && (b.shape != c.shape)  && (a.shape != c.shape);
         boolean countDiff = (a.count != b.count) && (b.count != c.count) && (a.count != c.count);
         return colorDiff || fillDiff || shapeDiff || countDiff;
     }
