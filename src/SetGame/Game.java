@@ -42,10 +42,10 @@ public class Game {
     }
 
     private boolean isSet(Card a, Card b, Card c) {
-        boolean colorDiff = (a.color != b.color) && (b.color != c.color) && (a.color != c.color);
-        boolean fillDiff = (a.fill != b.fill) && (b.fill != c.fill) && (a.fill != c.fill);
-        boolean shapeDiff = (a.shape != b.shape) && (b.shape != c.shape)  && (a.shape != c.shape);
-        boolean countDiff = (a.count != b.count) && (b.count != c.count) && (a.count != c.count);
+        boolean colorDiff = (a.color() != b.color()) && (b.color() != c.color()) && (a.color() != c.color());
+        boolean fillDiff = (a.fill() != b.fill()) && (b.fill() != c.fill()) && (a.fill() != c.fill());
+        boolean shapeDiff = (a.shape() != b.shape()) && (b.shape() != c.shape())  && (a.shape() != c.shape());
+        boolean countDiff = (a.count() != b.count()) && (b.count() != c.count()) && (a.count() != c.count());
         return colorDiff || fillDiff || shapeDiff || countDiff;
     }
 
