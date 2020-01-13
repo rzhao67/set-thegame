@@ -15,7 +15,6 @@ public class Engine {
                 Point slot = new Point((float) (i + 1) / (BOARD_X_DIM + 0.15) - 0.1025,
                         (float) (j + 1) / (BOARD_Y_DIM + 0.7) + 0.05);
                 drawCard(game.board.get((4 * j) + 1), slot);
-                StdDraw.text(slot.getX(), slot.getY(), "Hello!");
             }
         }
     }
@@ -34,6 +33,47 @@ public class Engine {
                 StdDraw.setPenColor(138, 43, 226);
                 break;
         }
+        switch (c.count()) {
+            case 1:
+                drawOne(c, p);
+                break;
+            case 2:
+                drawTwo(c, p);
+                break;
+            case 3:
+                drawThree(c, p);
+                break;
+        }
+        switch (c.fill()) {
+            case 1:
+                fillSolid(c, p);
+                break;
+            case 2:
+                fillStripes(c, p);
+                break;
+            case 3: //hollow
+                break;
+        }
+    }
+
+    private static void drawOne(Card c, Point p) {
+
+    }
+
+    private static void drawTwo(Card c, Point p) {
+
+    }
+
+    private static void drawThree(Card c, Point p) {
+
+    }
+
+    private static void fillSolid(Card c, Point p) {
+
+    }
+
+    private static void fillStripes(Card c, Point p) {
+
     }
 
     private static void drawCardOutline(Point p) {
