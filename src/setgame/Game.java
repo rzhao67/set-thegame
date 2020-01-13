@@ -1,4 +1,4 @@
-package SetGame;
+package setgame;
 
 import java.util.HashSet;
 import java.util.Set;
