@@ -20,10 +20,10 @@ public class Game {
         }
     }*/
 
-    private Random rng = new Random(1);
-    private Card[] board = new Card[12];
-    private Set<Card> deployed = new HashSet<>(); // Cards that have been seen
-    private Set<Card> discard = new HashSet<>(); // Cards that were on the board; now discarded
+    private static Random rng = new Random(1);
+    private static Card[] board = new Card[12];
+    private static Set<Card> deployed = new HashSet<>(); // Cards that have been seen
+    private static Set<Card> discard = new HashSet<>(); // Cards that were on the board; now discarded
     private static int boardSize = 12;
     public static final int WIDTH = 1200;
     public static final int HEIGHT = 600;
@@ -57,7 +57,7 @@ public class Game {
         board[boardIndex] = generateCard(boardIndex);
     }
 
-    private Card generateCard(int boardIndex) {
+    public static Card generateCard(int boardIndex) {
         int randColor = rng.nextInt(3);
         int randFill = rng.nextInt(3);
         int randShape = rng.nextInt(3);
@@ -77,18 +77,25 @@ public class Game {
         discard.add(c);
     }
 
-    // TODO: fix this method
     private boolean isSet(Card a, Card b, Card c) {
         boolean colorDiff = (a.color() != b.color()) && (b.color() != c.color()) && (a.color() != c.color());
         boolean fillDiff = (a.fill() != b.fill()) && (b.fill() != c.fill()) && (a.fill() != c.fill());
         boolean shapeDiff = (a.shape() != b.shape()) && (b.shape() != c.shape())  && (a.shape() != c.shape());
         boolean countDiff = (a.count() != b.count()) && (b.count() != c.count()) && (a.count() != c.count());
-        return colorDiff || fillDiff || shapeDiff || countDiff;
+        boolean colorSame = (a.color() == b.color()) && (b.color() == c.color()) && (a.color() == c.color());
+        boolean fillSame = (a.fill() == b.fill()) && (b.fill() == c.fill()) && (a.fill() == c.fill());
+        boolean shapeSame = (a.shape() == b.shape()) && (b.shape() == c.shape())  && (a.shape() == c.shape());
+        boolean countSame = (a.count() == b.count()) && (b.count() == c.count()) && (a.count() == c.count());
+        return (colorDiff || colorSame) && (fillDiff || fillSame)
+                && (shapeDiff || shapeSame) && (countDiff || countSame);
     }
 
     public static void main(String[] args) {
         StdDraw.setCanvasSize(WIDTH, HEIGHT);
-        Game game = new Game();
+/*        Game game = new Game();*/
+        Card c = generateCard(0);
+        c.drawCardOutline();
+        c.drawDiamond(c.loc());
     }
 }
 

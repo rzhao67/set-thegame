@@ -24,9 +24,8 @@ public class Card {
         int j = b % 3;
         // x-point scales by less than BOARD_X_DIM + 1 to spread cards out.
         // Then subtract 0.1 to shift all cards left.
-        Point slot = new Point((float) (i + 1) / (Game.BOARD_X_DIM + 0.15) - 0.1025,
+        return new Point((float) (i + 1) / (Game.BOARD_X_DIM + 0.15) - 0.1025,
                         (float) (j + 1) / (Game.BOARD_Y_DIM + 0.7) + 0.05);
-        return slot;
     }
 
     public void drawCardOutline() {
@@ -38,6 +37,17 @@ public class Card {
         StdDraw.line(northWest.getX(), northWest.getY(), southWest.getX(), southWest.getY());
         StdDraw.line(southWest.getX(), southWest.getY(), southEast.getX(), southEast.getY());
         StdDraw.line(northEast.getX(), northEast.getY(), southEast.getX(), southEast.getY());
+    }
+
+    public void drawDiamond(Point p) {
+        Point west = new Point(p.getX() - 0.025, p.getY());
+        Point north = new Point(p.getX(), p.getY() + 0.075);
+        Point east = new Point(p.getX() + 0.025, p.getY());
+        Point south = new Point(p.getX(), p.getY() - 0.075);
+        StdDraw.line(west.getX(), west.getY(), north.getX(), north.getY());
+        StdDraw.line(north.getX(), north.getY(), east.getX(), east.getY());
+        StdDraw.line(east.getX(), east.getY(), south.getX(), south.getY());
+        StdDraw.line(south.getX(), south.getY(), west.getX(), west.getY());
     }
 
     public int boardIndex() {
@@ -75,6 +85,7 @@ public class Card {
     }
 
     public static void main(String[] args) {
-        System.out.println(Math.floor((float) 7 / 3));
+        /*System.out.println(Math.floor((float) 7 / 3));*/
+        StdDraw.setCanvasSize(1200, 600);
     }
 }
