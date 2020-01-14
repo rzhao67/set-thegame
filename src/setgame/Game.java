@@ -1,5 +1,7 @@
 package setgame;
 
+import edu.princeton.cs.introcs.StdDraw;
+
 import java.util.HashSet;
 import java.util.Set;
 import java.util.Random;
@@ -23,6 +25,8 @@ public class Game {
     private Set<Card> deployed = new HashSet<>(); // Cards that have been seen
     private Set<Card> discard = new HashSet<>(); // Cards that were on the board; now discarded
     private static int boardSize = 12;
+    public static final int WIDTH = 1200;
+    public static final int HEIGHT = 600;
     public static final int BOARD_X_DIM = 4;
     public static final int BOARD_Y_DIM = 3;
 
@@ -31,7 +35,7 @@ public class Game {
         displayBoard();
     }
 
-    public void displayBoard() {
+    public void displayBoard() { // Call this method after each set is collected
         for (int i = 0; i < boardSize; i++) {
             board[i].drawCardOutline();
         }
@@ -83,6 +87,7 @@ public class Game {
     }
 
     public static void main(String[] args) {
+        StdDraw.setCanvasSize(WIDTH, HEIGHT);
         Game game = new Game();
     }
 }
