@@ -3,45 +3,9 @@ package setgame;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.Random;
-import java.util.ArrayList;
 
 public class Game {
 /*
-    public ArrayList<Card> board = new ArrayList<>();
-    public Set<Card> discard = new HashSet<>();
-    public Random randNums = new Random(1);
-
-    Game() {
-        initializeBoard();
-    }
-
-    public int size() {
-        return board.size();
-    }
-
-    private void addCard() {
-        int randColor = randNums.nextInt(4);
-        int randFill = randNums.nextInt(4);
-        int randShape = randNums.nextInt(4);
-        int randCount = randNums.nextInt(4);
-        Card newCard = new Card(randColor, randFill, randShape, randCount);
-        if (discard.contains(newCard) || board.contains(newCard)) {
-            addCard();
-        } else {
-            board.add(newCard);
-        }
-    }
-
-    private void removeCard(Card a) {
-        board.remove(a);
-    }
-
-    public void initializeBoard() {
-        while (board.size() < 12) {
-            addCard();
-        }
-    }
-
     private boolean isSet(Card a, Card b, Card c) {
         boolean colorDiff = (a.color() != b.color()) && (b.color() != c.color()) && (a.color() != c.color());
         boolean fillDiff = (a.fill() != b.fill()) && (b.fill() != c.fill()) && (a.fill() != c.fill());
@@ -63,25 +27,63 @@ public class Game {
     }*/
 
     private Random rng = new Random(1);
-    private int[] board = new int[12];
+    private Card[] board = new Card[12];
+    private Set<Card> deployed = new HashSet<>();
     private Set<Card> discard = new HashSet<>();
-    private int boardSize = 12;
+    private static int boardSize = 12;
     public static final int BOARD_X_DIM = 4;
     public static final int BOARD_Y_DIM = 3;
 
-    public int size() {
+    public Game() {
+        initializeBoard();
+    }
+
+    public static int size() {
         return boardSize;
     }
 
-    public void addCard(int boardIndex) {
-
+    private void initializeBoard() {
+        for (int i = 0; i < Game.boardSize; i++) {
+            if (board[i] == null) {
+                addCard(i);
+            }
+        }
     }
 
-    private Card generateCard() {
+    public void addCard(int boardIndex) {
+        board[boardIndex] = generateCard(boardIndex);
+    }
+
+    private Card generateCard(int boardIndex) {
         int randColor = rng.nextInt(3);
         int randFill = rng.nextInt(3);
         int randShape = rng.nextInt(3);
         int randCount = rng.nextInt(3);
+        Card addCard = new Card(randColor, randFill, randShape, randCount, boardIndex);
+        // Checks if card is unique
+        if (discard.contains(addCard) || deployed.contains(addCard)) {
+            return generateCard(boardIndex);
+        } else {
+            deployed.add(addCard);
+            return addCard;
+        }
+    }
+
+    private void removeCard(Card c) {
+        board[c.boardIndex()] = null;
+        discard.add(c);
+    }
+
+    private boolean isSet(Card a, Card b, Card c) { // TODO: fix this
+        boolean colorDiff = (a.color() != b.color()) && (b.color() != c.color()) && (a.color() != c.color());
+        boolean fillDiff = (a.fill() != b.fill()) && (b.fill() != c.fill()) && (a.fill() != c.fill());
+        boolean shapeDiff = (a.shape() != b.shape()) && (b.shape() != c.shape())  && (a.shape() != c.shape());
+        boolean countDiff = (a.count() != b.count()) && (b.count() != c.count()) && (a.count() != c.count());
+        return colorDiff || fillDiff || shapeDiff || countDiff;
+    }
+
+    public static void main(String[] args) {
+        Game game = new Game();
     }
 }
 
