@@ -8,13 +8,7 @@ public class Engine {
     public static final int BOARD_X_DIM = 4;
     public static final int BOARD_Y_DIM = 3;
 
-    public static void displayBoard(Game game) {
-        for (int i = 0; i < BOARD_X_DIM; i++) {
-            for (int j = 0; j < BOARD_Y_DIM; j++) {
-                return;
-            }
-        }
-    }
+
 
     /*public static void drawCard(Card c, Point p) {
         StdDraw.setPenColor(StdDraw.BLACK);
@@ -79,8 +73,5 @@ public class Engine {
 
     public static void main(String[] args) {
         Game game = new Game();
-        System.out.println(game.size());
-        StdDraw.setCanvasSize(WIDTH, HEIGHT);
-        displayBoard(game);
     }
 }

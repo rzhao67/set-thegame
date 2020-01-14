@@ -6,14 +6,6 @@ import java.util.Random;
 
 public class Game {
 /*
-    private boolean isSet(Card a, Card b, Card c) {
-        boolean colorDiff = (a.color() != b.color()) && (b.color() != c.color()) && (a.color() != c.color());
-        boolean fillDiff = (a.fill() != b.fill()) && (b.fill() != c.fill()) && (a.fill() != c.fill());
-        boolean shapeDiff = (a.shape() != b.shape()) && (b.shape() != c.shape())  && (a.shape() != c.shape());
-        boolean countDiff = (a.count() != b.count()) && (b.count() != c.count()) && (a.count() != c.count());
-        return colorDiff || fillDiff || shapeDiff || countDiff;
-    }
-
     public void collectSet(Card a, Card b, Card c) {
         discard.add(a);
         discard.add(b);
@@ -28,17 +20,24 @@ public class Game {
 
     private Random rng = new Random(1);
     private Card[] board = new Card[12];
-    private Set<Card> deployed = new HashSet<>();
-    private Set<Card> discard = new HashSet<>();
+    private Set<Card> deployed = new HashSet<>(); // Cards that have been seen
+    private Set<Card> discard = new HashSet<>(); // Cards that were on the board; now discarded
     private static int boardSize = 12;
     public static final int BOARD_X_DIM = 4;
     public static final int BOARD_Y_DIM = 3;
 
     public Game() {
         initializeBoard();
+        displayBoard();
     }
 
-    public static int size() {
+    public void displayBoard() {
+        for (int i = 0; i < boardSize; i++) {
+            board[i].drawCardOutline();
+        }
+    }
+
+    public int size() {
         return boardSize;
     }
 
@@ -50,7 +49,7 @@ public class Game {
         }
     }
 
-    public void addCard(int boardIndex) {
+    private void addCard(int boardIndex) {
         board[boardIndex] = generateCard(boardIndex);
     }
 
@@ -74,7 +73,8 @@ public class Game {
         discard.add(c);
     }
 
-    private boolean isSet(Card a, Card b, Card c) { // TODO: fix this
+    // TODO: fix this method
+    private boolean isSet(Card a, Card b, Card c) {
         boolean colorDiff = (a.color() != b.color()) && (b.color() != c.color()) && (a.color() != c.color());
         boolean fillDiff = (a.fill() != b.fill()) && (b.fill() != c.fill()) && (a.fill() != c.fill());
         boolean shapeDiff = (a.shape() != b.shape()) && (b.shape() != c.shape())  && (a.shape() != c.shape());
