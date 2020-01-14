@@ -94,8 +94,11 @@ public class Game {
         StdDraw.setCanvasSize(WIDTH, HEIGHT);
 /*        Game game = new Game();*/
         Card c = generateCard(0);
+        Card c2 = generateCard(1);
         c.drawCardOutline();
+        c2.drawCardOutline();
         c.drawDiamond(c.loc());
+        c2.drawOval(c2.loc());
     }
 }
 

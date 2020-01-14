@@ -49,7 +49,11 @@ public class Card {
         Point south = new Point(p.getX(), p.getY() - 0.075);
         double[] xInd = new double[]{west.getX(), north.getX(), east.getX(), south.getX()};
         double[] yInd = new double[]{west.getY(), north.getY(), east.getY(), south.getY()};
-        StdDraw.filledPolygon(xInd, yInd);
+        StdDraw.polygon(xInd, yInd);
+    }
+
+    public void drawOval(Point p) {
+        StdDraw.ellipse(p.getX(), p.getY(), 0.025, 0.075);
     }
 
     public int boardIndex() {
