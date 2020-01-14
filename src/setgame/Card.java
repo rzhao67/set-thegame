@@ -5,12 +5,28 @@ public class Card {
     private int fill;
     private int shape;
     private int count;
+    private Point loc;
+    private int boardIndex;
 
-    Card(int c, int f, int s, int num) {
+    public Card(int c, int f, int s, int num, int b) {
         color = c;
         fill = f;
         shape = s;
         count = num;
+        boardIndex = b; // board array index
+        loc = indexToPoint(boardIndex);
+    }
+
+    private Point indexToPoint(int b) {
+
+    }
+
+    public int boardIndex() {
+        return boardIndex;
+    }
+
+    public Point loc() {
+        return loc;
     }
 
     public int color() {

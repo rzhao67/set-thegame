@@ -3,7 +3,7 @@ package setgame;
 import edu.princeton.cs.introcs.StdDraw;
 
 public class Engine {
-    public static final int WIDTH = 1200;
+    /*public static final int WIDTH = 1200;
     public static final int HEIGHT = 600;
     public static final int BOARD_X_DIM = 4;
     public static final int BOARD_Y_DIM = 3;
@@ -96,5 +96,5 @@ public class Engine {
         System.out.println(game.size());
         StdDraw.setCanvasSize(WIDTH, HEIGHT);
         displayBoard(game);
-    }
+    }*/
 }

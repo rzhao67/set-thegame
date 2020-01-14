@@ -6,6 +6,7 @@ import java.util.Random;
 import java.util.ArrayList;
 
 public class Game {
+/*
     public ArrayList<Card> board = new ArrayList<>();
     public Set<Card> discard = new HashSet<>();
     public Random randNums = new Random(1);
@@ -59,5 +60,28 @@ public class Game {
         while (board.size() < 12 && discard.size() < 69) {
             addCard();
         }
+    }*/
+
+    private Random rng = new Random(1);
+    private int[] board = new int[12];
+    private Set<Card> discard = new HashSet<>();
+    private int boardSize = 12;
+    public static final int BOARD_X_DIM = 4;
+    public static final int BOARD_Y_DIM = 3;
+
+    public int size() {
+        return boardSize;
+    }
+
+    public void addCard(int boardIndex) {
+
+    }
+
+    private Card generateCard() {
+        int randColor = rng.nextInt(3);
+        int randFill = rng.nextInt(3);
+        int randShape = rng.nextInt(3);
+        int randCount = rng.nextInt(3);
     }
 }
+
