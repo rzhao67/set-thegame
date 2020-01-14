@@ -9,6 +9,10 @@ public class Card {
     private int count;
     private Point loc;
     private int boardIndex;
+    private Point northWest;
+    private Point northEast;
+    private Point southWest;
+    private Point southEast;
 
     public Card(int c, int f, int s, int num, int b) {
         color = c;
@@ -17,6 +21,10 @@ public class Card {
         count = num;
         boardIndex = b; // board array index
         loc = indexToPoint(boardIndex);
+        northWest = new Point(loc.getX() - 0.11, loc.getY() + 0.11);
+        southWest = new Point(loc.getX() - 0.11, loc.getY() - 0.11);
+        northEast = new Point(loc.getX() + 0.11, loc.getY() + 0.11);
+        southEast = new Point(loc.getX() + 0.11, loc.getY() - 0.11);
     }
 
     private Point indexToPoint(int b) {
@@ -29,14 +37,9 @@ public class Card {
     }
 
     public void drawCardOutline() {
-        Point northWest = new Point(loc.getX() - 0.11, loc.getY() + 0.11);
-        Point southWest = new Point(loc.getX() - 0.11, loc.getY() - 0.11);
-        Point northEast = new Point(loc.getX() + 0.11, loc.getY() + 0.11);
-        Point southEast = new Point(loc.getX() + 0.11, loc.getY() - 0.11);
-        StdDraw.line(northWest.getX(), northWest.getY(), northEast.getX(), northEast.getY());
-        StdDraw.line(northWest.getX(), northWest.getY(), southWest.getX(), southWest.getY());
-        StdDraw.line(southWest.getX(), southWest.getY(), southEast.getX(), southEast.getY());
-        StdDraw.line(northEast.getX(), northEast.getY(), southEast.getX(), southEast.getY());
+        double[] xInd = new double[]{northWest.getX(), northEast.getX(), southEast.getX(), southWest.getX()};
+        double[] yInd = new double[]{northWest.getY(), northEast.getY(), southEast.getY(), southWest.getY()};
+        StdDraw.polygon(xInd, yInd);
     }
 
     public void drawDiamond(Point p) {
@@ -44,10 +47,9 @@ public class Card {
         Point north = new Point(p.getX(), p.getY() + 0.075);
         Point east = new Point(p.getX() + 0.025, p.getY());
         Point south = new Point(p.getX(), p.getY() - 0.075);
-        StdDraw.line(west.getX(), west.getY(), north.getX(), north.getY());
-        StdDraw.line(north.getX(), north.getY(), east.getX(), east.getY());
-        StdDraw.line(east.getX(), east.getY(), south.getX(), south.getY());
-        StdDraw.line(south.getX(), south.getY(), west.getX(), west.getY());
+        double[] xInd = new double[]{west.getX(), north.getX(), east.getX(), south.getX()};
+        double[] yInd = new double[]{west.getY(), north.getY(), east.getY(), south.getY()};
+        StdDraw.filledPolygon(xInd, yInd);
     }
 
     public int boardIndex() {
