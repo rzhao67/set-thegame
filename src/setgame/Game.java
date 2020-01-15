@@ -92,13 +92,11 @@ public class Game {
 
     public static void main(String[] args) {
         StdDraw.setCanvasSize(WIDTH, HEIGHT);
-/*        Game game = new Game();*/
         Card c = generateCard(0);
-        Card c2 = generateCard(1);
         c.drawCardOutline();
-        c2.drawCardOutline();
-        c.drawDiamond(c.loc());
-        c2.drawOval(c2.loc());
+        StdDraw.setPenColor(StdDraw.RED);
+        StdDraw.setPenRadius(0.005);
+        Card.drawSquiggle(c.loc());
     }
 }
 

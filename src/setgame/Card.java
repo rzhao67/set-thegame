@@ -42,7 +42,7 @@ public class Card {
         StdDraw.polygon(xInd, yInd);
     }
 
-    public void drawDiamond(Point p) {
+    public static void drawDiamond(Point p) {
         Point west = new Point(p.getX() - 0.025, p.getY());
         Point north = new Point(p.getX(), p.getY() + 0.075);
         Point east = new Point(p.getX() + 0.025, p.getY());
@@ -52,8 +52,20 @@ public class Card {
         StdDraw.polygon(xInd, yInd);
     }
 
-    public void drawOval(Point p) {
+    public static void drawOval(Point p) {
         StdDraw.ellipse(p.getX(), p.getY(), 0.025, 0.075);
+    }
+
+    public static void drawSquiggle(Point p) {
+        Point northWest = new Point(p.getX() - 0.01, p.getY() + 0.075);
+        Point southEast = new Point(p.getX() + 0.01, p.getY() - 0.075);
+        Point east = new Point(p.getX() + 0.015, p.getY() + 0.01);
+        Point eastSouth = new Point(p.getX() + 0.0025, p.getY() - 0.02);
+        Point west = new Point(p.getX() - 0.015, p.getY() - 0.01);
+        Point westNorth = new Point(p.getX() - 0.0025, p.getY() + 0.02);
+        double[] xInd = new double[]{northWest.getX(), east.getX(), eastSouth.getX(), southEast.getX(), west.getX(), westNorth.getX()};
+        double[] yInd = new double[]{northWest.getY(), east.getY(), eastSouth.getY(), southEast.getY(), west.getY(), westNorth.getY()};
+        StdDraw.polygon(xInd, yInd);
     }
 
     public int boardIndex() {
@@ -93,5 +105,8 @@ public class Card {
     public static void main(String[] args) {
         /*System.out.println(Math.floor((float) 7 / 3));*/
         StdDraw.setCanvasSize(1200, 600);
+        Point p = new Point(0.5, 0.5);
+        StdDraw.setPenColor(StdDraw.RED);
+        Card.drawSquiggle(p);
     }
 }
