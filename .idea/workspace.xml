@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="266c54a1-f82f-4fc4-93ce-259f42548e99" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/setgame/Util.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/set/SetGame/Card.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/set/SetGame/Card.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/setgame/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/setgame/Card.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/setgame/Engine.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/setgame/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/setgame/Game.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -18,11 +14,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/setgame/Game.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="102" column="5" lean-forward="true" selection-start-line="102" selection-start-column="5" selection-end-line="102" selection-end-column="5" />
+            <state relative-caret-position="345">
+              <caret line="97" column="36" selection-start-line="97" selection-start-column="36" selection-end-line="97" selection-end-column="36" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#2065#2066#0" expanded="true" />
@@ -33,20 +29,18 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/setgame/Card.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-840">
-              <caret line="50" column="91" lean-forward="true" selection-start-line="50" selection-start-column="91" selection-end-line="50" selection-end-column="91" />
+            <state relative-caret-position="194">
+              <caret line="161" column="121" selection-start-line="161" selection-start-column="121" selection-end-line="161" selection-end-column="121" />
               <folding>
-                <element signature="e#2086#2087#0" expanded="true" />
-                <element signature="e#2151#2152#0" expanded="true" />
-                <element signature="e#3018#3019#0" expanded="true" />
-                <element signature="e#3070#3071#0" expanded="true" />
-                <element signature="e#3124#3125#0" expanded="true" />
-                <element signature="e#3176#3177#0" expanded="true" />
-                <element signature="e#3230#3231#0" expanded="true" />
-                <element signature="e#3284#3285#0" expanded="true" />
+                <element signature="e#8642#8643#0" expanded="true" />
+                <element signature="e#8694#8695#0" expanded="true" />
+                <element signature="e#8748#8749#0" expanded="true" />
+                <element signature="e#8800#8801#0" expanded="true" />
+                <element signature="e#8854#8855#0" expanded="true" />
+                <element signature="e#8908#8909#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -55,31 +49,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/setgame/Util.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" column="37" selection-start-line="12" selection-start-column="37" selection-end-line="12" selection-end-column="37" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/setgame/Point.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="16" selection-start-line="16" selection-end-line="16" />
-              <folding>
-                <element signature="e#190#191#0" expanded="true" />
-                <element signature="e#217#218#0" expanded="true" />
-                <element signature="e#272#273#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/TestStdDraw.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="29" selection-start-line="9" selection-start-column="29" selection-end-line="9" selection-end-column="29" />
+            <state relative-caret-position="119">
+              <caret line="7" column="28" selection-start-line="7" selection-start-column="28" selection-end-line="7" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -128,8 +99,8 @@
         <option value="$PROJECT_DIR$/src/SetGame/Card.java" />
         <option value="$PROJECT_DIR$/src/setgame/Engine.java" />
         <option value="$PROJECT_DIR$/src/setgame/Util.java" />
-        <option value="$PROJECT_DIR$/src/setgame/Card.java" />
         <option value="$PROJECT_DIR$/src/setgame/Game.java" />
+        <option value="$PROJECT_DIR$/src/setgame/Card.java" />
       </list>
     </option>
   </component>
@@ -174,7 +145,7 @@
     <property name="Repository.Attach.Annotations" value="false" />
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1579051533453" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1579066146952" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
     <property name="create.test.in.the.same.root" value="true" />
@@ -203,7 +174,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Game">
+  <component name="RunManager" selected="Application.Card">
     <configuration name="Card" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="setgame.Card" />
       <module name="set" />
@@ -271,8 +242,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Game" />
         <item itemvalue="Application.Card" />
+        <item itemvalue="Application.Game" />
         <item itemvalue="Application.Engine" />
         <item itemvalue="Application.TestStdDraw" />
         <item itemvalue="Application.GameTest" />
@@ -360,13 +331,6 @@
     <entry file="file://$PROJECT_DIR$/src/StdDraw.java" />
     <entry file="file://$PROJECT_DIR$/src/SetGame/BoardRenderer.java" />
     <entry file="file://$PROJECT_DIR$/src/SetGame/GameTest.java" />
-    <entry file="file://$PROJECT_DIR$/src/TestStdDraw.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="29" selection-start-line="9" selection-start-column="29" selection-end-line="9" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/setgame/Engine.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-911">
@@ -375,13 +339,6 @@
             <element signature="e#1622#1623#0" expanded="true" />
             <element signature="e#1660#1661#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/setgame/Util.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="37" selection-start-line="12" selection-start-column="37" selection-end-line="12" selection-end-column="37" />
         </state>
       </provider>
     </entry>
@@ -397,32 +354,44 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/setgame/Card.java">
+    <entry file="file://$PROJECT_DIR$/src/TestStdDraw.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-840">
-          <caret line="50" column="91" lean-forward="true" selection-start-line="50" selection-start-column="91" selection-end-line="50" selection-end-column="91" />
-          <folding>
-            <element signature="e#2086#2087#0" expanded="true" />
-            <element signature="e#2151#2152#0" expanded="true" />
-            <element signature="e#3018#3019#0" expanded="true" />
-            <element signature="e#3070#3071#0" expanded="true" />
-            <element signature="e#3124#3125#0" expanded="true" />
-            <element signature="e#3176#3177#0" expanded="true" />
-            <element signature="e#3230#3231#0" expanded="true" />
-            <element signature="e#3284#3285#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="153">
+          <caret line="9" column="29" selection-start-line="9" selection-start-column="29" selection-end-line="9" selection-end-column="29" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/setgame/Game.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="102" column="5" lean-forward="true" selection-start-line="102" selection-start-column="5" selection-end-line="102" selection-end-column="5" />
+        <state relative-caret-position="345">
+          <caret line="97" column="36" selection-start-line="97" selection-start-column="36" selection-end-line="97" selection-end-column="36" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#2065#2066#0" expanded="true" />
             <element signature="e#2096#2097#0" expanded="true" />
             <element signature="e#1559#1560#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/setgame/Util.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="28" selection-start-line="7" selection-start-column="28" selection-end-line="7" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/setgame/Card.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="194">
+          <caret line="161" column="121" selection-start-line="161" selection-start-column="121" selection-end-line="161" selection-end-column="121" />
+          <folding>
+            <element signature="e#8642#8643#0" expanded="true" />
+            <element signature="e#8694#8695#0" expanded="true" />
+            <element signature="e#8748#8749#0" expanded="true" />
+            <element signature="e#8800#8801#0" expanded="true" />
+            <element signature="e#8854#8855#0" expanded="true" />
+            <element signature="e#8908#8909#0" expanded="true" />
           </folding>
         </state>
       </provider>

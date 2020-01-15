@@ -96,7 +96,6 @@ public class Game {
         c.drawCardOutline();
         StdDraw.setPenColor(StdDraw.RED);
         StdDraw.setPenRadius(0.005);
-        Card.drawSquiggle(c.loc());
     }
 }
 
