@@ -58,9 +58,9 @@ public class Card {
         StdDraw.polygon(xInd, yInd);
     }
 
-    public void drawTwo(Point p, int shape, int fill) {
-        Point left = new Point(p.getX() - 0.05, p.getY());
-        Point right = new Point(p.getX() + 0.05, p.getY());
+    public static void drawTwo(Point p, int shape, int fill) {
+        Point left = new Point(p.getX() - 0.03, p.getY());
+        Point right = new Point(p.getX() + 0.03, p.getY());
         switch (shape) {
             case 0:
                 Card.drawOval(left, fill);
@@ -77,7 +77,7 @@ public class Card {
         }
     }
 
-    public void drawThree(Point p, int shape, int fill) {
+    public static void drawThree(Point p, int shape, int fill) {
         Point left = new Point(p.getX() - 0.06, p.getY());
         Point right = new Point(p.getX() + 0.06, p.getY());
         switch (shape) {
@@ -170,7 +170,23 @@ public class Card {
         Point westNorth = new Point(p.getX() - 0.0025, p.getY() + 0.02);
         double[] xInd = new double[]{northWest.getX(), east.getX(), eastSouth.getX(), southEast.getX(), west.getX(), westNorth.getX()};
         double[] yInd = new double[]{northWest.getY(), east.getY(), eastSouth.getY(), southEast.getY(), west.getY(), westNorth.getY()};
-        StdDraw.polygon(xInd, yInd);
+        switch (fill) {
+            case 0:
+                StdDraw.polygon(xInd, yInd);
+                break;
+            case 1:
+                StdDraw.polygon(xInd, yInd);
+                StdDraw.line(westNorth.getX(), westNorth.getY(), p.getX() + 0.01, westNorth.getY());
+                StdDraw.line(p.getX() - 0.01, eastSouth.getY(), eastSouth.getX(), eastSouth.getY());
+                StdDraw.line(p.getX() - 0.01, p.getY(), p.getX() + 0.01, p.getY());
+                StdDraw.line(p.getX() - 0.005, p.getY() + 0.04, p.getX() + 0.004, p.getY() + 0.04);
+                StdDraw.line(p.getX() - 0.003, p.getY() - 0.04, p.getX() + 0.005, p.getY() - 0.04);
+                break;
+            case 2:
+                StdDraw.filledPolygon(xInd, yInd);
+                break;
+
+        }
     }
 
     public int boardIndex() {
@@ -212,6 +228,6 @@ public class Card {
         StdDraw.setCanvasSize(1200, 600);
         Card c = Game.generateCard(0);
         c.drawCard();
-        Card.drawOval(c.loc(), 1);
+        Card.drawSquiggle(c.loc(),1);
     }
 }
