@@ -20,6 +20,7 @@ public class Game {
     public static final int BOARD_Y_DIM = 3;
     private static final boolean GAME_OVER = false;
     public static int numCardsClicked;
+    public static Set<Card> clickedCards = new HashSet<>();
 
     Game() {
         StdDraw.enableDoubleBuffering();
@@ -120,14 +121,33 @@ public class Game {
         }
     }
 
+    public static void displaySubmit() {
+        StdDraw.setPenColor(StdDraw.MAGENTA);
+        StdDraw.text(0.5, 0.1, "SUBMIT");
+        StdDraw.show();
+    }
+
+    public static void clearSubmit() {
+        StdDraw.setPenColor(StdDraw.WHITE);
+        StdDraw.setPenRadius(0.1);
+        StdDraw.line(0.45, 0.1, 0.55, 0.1);
+        StdDraw.show();
+    }
+
     public static void main(String[] args) {
         StdDraw.setCanvasSize(WIDTH, HEIGHT);
         StdDraw.setPenRadius(0.005);
-        Game game = new Game();
+        new Game();
         while (!GAME_OVER) {
             if (StdDraw.isMousePressed()) {
                 checkClickCard(StdDraw.mouseX(), StdDraw.mouseY());
                 StdDraw.pause(200);
+            }
+            if (numCardsClicked == 3) {
+                displaySubmit();
+            }
+            if (numCardsClicked != 3) {
+                clearSubmit();
             }
         }
     }

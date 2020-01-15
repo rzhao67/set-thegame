@@ -293,6 +293,7 @@ public class Card {
             this.drawCardOutline();
             highlighted = true;
             Game.numCardsClicked++;
+            Game.clickedCards.add(this);
             StdDraw.show();
         } else {
             StdDraw.setPenColor(StdDraw.WHITE);
@@ -303,6 +304,7 @@ public class Card {
             this.drawCardOutline();
             highlighted = false;
             Game.numCardsClicked--;
+            Game.clickedCards.remove(this);
             StdDraw.show();
         }
     }
