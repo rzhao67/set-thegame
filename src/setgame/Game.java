@@ -18,10 +18,13 @@ public class Game {
     private static final int HEIGHT = 600;
     public static final int BOARD_X_DIM = 4;
     public static final int BOARD_Y_DIM = 3;
+    private static final boolean GAME_OVER = false;
 
     Game() {
+        StdDraw.enableDoubleBuffering();
         board = initializeBoard();
         displayBoard();
+        StdDraw.show();
     }
 
     private static void displayBoard() { // Call this method after each set is collected
@@ -97,6 +100,7 @@ public class Game {
             }
         }
         displayBoard();
+        StdDraw.show();
     }
 
     private static void removeCard(Card c) {
@@ -104,10 +108,27 @@ public class Game {
         discard.add(c);
     }
 
+    // Checks if the mouse click has clicked within the boundaries of a Card.
+    private static void checkClickCard(double x, double y) {
+        // May cause NullExceptionError. If so, adjust the for loop to use indices instead.
+        for (Card c : board) {
+            if ((x > c.getLeftBound() && x < c.getRightBound())
+                    && (y > c.getLowerBound() && y < c.getUpperBound())) {
+                c.borderHighlight();
+            }
+        }
+    }
+
     public static void main(String[] args) {
         StdDraw.setCanvasSize(WIDTH, HEIGHT);
         StdDraw.setPenRadius(0.005);
         Game game = new Game();
+        while (!GAME_OVER) {
+            if (StdDraw.isMousePressed()) {
+                checkClickCard(StdDraw.mouseX(), StdDraw.mouseY());
+                StdDraw.pause(200);
+            }
+        }
     }
 }
 

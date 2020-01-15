@@ -13,6 +13,7 @@ public class Card {
     private Point northEast;
     private Point southWest;
     private Point southEast;
+    private boolean highlighted = false;
 
     Card(int c, int f, int s, int num, int b) {
         color = c;
@@ -241,6 +242,22 @@ public class Card {
         }
     }
 
+    public double getLeftBound() {
+        return northWest.getX();
+    }
+
+    public double getUpperBound() {
+        return northWest.getY();
+    }
+
+    public double getLowerBound() {
+        return southEast.getY();
+    }
+
+    public double getRightBound() {
+        return southEast.getX();
+    }
+
     public int boardIndex() {
         return boardIndex;
     }
@@ -263,6 +280,25 @@ public class Card {
 
     public int count() {
         return count;
+    }
+
+    public void borderHighlight() {
+        if (!highlighted) {
+            StdDraw.setPenColor(StdDraw.MAGENTA);
+            StdDraw.setPenRadius(0.01);
+            this.drawCardOutline();
+            highlighted = true;
+            StdDraw.show();
+        } else {
+            StdDraw.setPenColor(StdDraw.WHITE);
+            StdDraw.setPenRadius(0.015);
+            this.drawCardOutline();
+            StdDraw.setPenColor(StdDraw.BLACK);
+            StdDraw.setPenRadius(0.005);
+            this.drawCardOutline();
+            highlighted = false;
+            StdDraw.show();
+        }
     }
 
     @Override
