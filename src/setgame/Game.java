@@ -19,6 +19,7 @@ public class Game {
     public static final int BOARD_X_DIM = 4;
     public static final int BOARD_Y_DIM = 3;
     private static final boolean GAME_OVER = false;
+    public static int numCardsClicked;
 
     Game() {
         StdDraw.enableDoubleBuffering();
@@ -112,8 +113,8 @@ public class Game {
     private static void checkClickCard(double x, double y) {
         // May cause NullExceptionError. If so, adjust the for loop to use indices instead.
         for (Card c : board) {
-            if ((x > c.getLeftBound() && x < c.getRightBound())
-                    && (y > c.getLowerBound() && y < c.getUpperBound())) {
+            if ((x > c.getLeftBound() && x < c.getRightBound()) && (y > c.getLowerBound()
+                    && y < c.getUpperBound()) && (numCardsClicked < 3 || c.isHighlighted())) {
                 c.borderHighlight();
             }
         }

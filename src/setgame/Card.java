@@ -282,12 +282,17 @@ public class Card {
         return count;
     }
 
+    public boolean isHighlighted() {
+        return highlighted;
+    }
+
     public void borderHighlight() {
         if (!highlighted) {
             StdDraw.setPenColor(StdDraw.MAGENTA);
             StdDraw.setPenRadius(0.01);
             this.drawCardOutline();
             highlighted = true;
+            Game.numCardsClicked++;
             StdDraw.show();
         } else {
             StdDraw.setPenColor(StdDraw.WHITE);
@@ -297,6 +302,7 @@ public class Card {
             StdDraw.setPenRadius(0.005);
             this.drawCardOutline();
             highlighted = false;
+            Game.numCardsClicked--;
             StdDraw.show();
         }
     }
