@@ -31,13 +31,15 @@ public class Game {
     public static final int BOARD_Y_DIM = 3;
 
     public Game() {
-        initializeBoard();
+        board = initializeBoard();
         displayBoard();
     }
 
     public void displayBoard() { // Call this method after each set is collected
         for (int i = 0; i < boardSize; i++) {
+            StdDraw.setPenColor(StdDraw.BLACK);
             board[i].drawCardOutline();
+            board[i].drawCard();
         }
     }
 
@@ -45,12 +47,13 @@ public class Game {
         return boardSize;
     }
 
-    private void initializeBoard() {
+    private Card[] initializeBoard() {
         for (int i = 0; i < Game.boardSize; i++) {
             if (board[i] == null) {
                 addCard(i);
             }
         }
+        return board;
     }
 
     private void addCard(int boardIndex) {
@@ -92,10 +95,10 @@ public class Game {
 
     public static void main(String[] args) {
         StdDraw.setCanvasSize(WIDTH, HEIGHT);
-        Card c = generateCard(0);
-        c.drawCardOutline();
-        StdDraw.setPenColor(StdDraw.RED);
-        StdDraw.setPenRadius(0.005);
+        Game game = new Game();
+        System.out.println(Game.deployed.contains(Game.board[6]));
+        System.out.println(Card.toString(Game.board[5]));
+        System.out.println(Card.toString(Game.board[6]));
     }
 }
 

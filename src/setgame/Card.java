@@ -2,7 +2,7 @@ package setgame;
 
 import edu.princeton.cs.introcs.StdDraw;
 
-public class Card {
+public class Card{
     private int color;
     private int fill;
     private int shape;
@@ -27,7 +27,6 @@ public class Card {
         southEast = new Point(loc.getX() + 0.11, loc.getY() - 0.11);
     }
 
-    // TODO: finish
     public void drawCard() {
         this.drawCardOutline();
         switch (this.color) {
@@ -39,6 +38,17 @@ public class Card {
                 break;
             case 2:
                 StdDraw.setPenColor(138, 43, 226);
+                break;
+        }
+        switch (this.count) {
+            case 0:
+                drawOne(loc, shape, fill);
+                break;
+            case 1:
+                drawTwo(loc, shape, fill);
+                break;
+            case 2:
+                drawThree(loc, shape, fill);
                 break;
         }
     }
@@ -56,6 +66,20 @@ public class Card {
         double[] xInd = new double[]{northWest.getX(), northEast.getX(), southEast.getX(), southWest.getX()};
         double[] yInd = new double[]{northWest.getY(), northEast.getY(), southEast.getY(), southWest.getY()};
         StdDraw.polygon(xInd, yInd);
+    }
+
+    public static void drawOne(Point p, int shape, int fill) {
+        switch (shape) {
+            case 0:
+                Card.drawOval(p, fill);
+                break;
+            case 1:
+                Card.drawDiamond(p, fill);
+                break;
+            case 2:
+                Card.drawSquiggle(p, fill);
+                break;
+        }
     }
 
     public static void drawTwo(Point p, int shape, int fill) {
@@ -213,21 +237,25 @@ public class Card {
         return count;
     }
 
-    public boolean equals(Card a, Card b) {
-        return a.color == b.color && a.fill == b.fill
-                && a.shape == b.shape && a.count == b.count;
+    @Override
+    public boolean equals(Object obj) {
+        Card a = (Card) obj;
+        return  a.color == this.color && a.fill == this.fill
+                && a.shape == this.shape && a.count == this.count;
     }
 
-    public int hashCode(Card c) {
-        return (int) ((c.color * Math.pow(3, 4)) + (c.fill * Math.pow(3, 3))
-                + (c.shape * Math.pow(3, 2)) + (c.count * 3));
+    @Override
+    public int hashCode() {
+        return (int) ((this.color * Math.pow(3, 4)) + (this.fill * Math.pow(3, 3))
+                + (this.shape * Math.pow(3, 2)) + (this.count * 3));
+    }
+
+    public static String toString(Card c) {
+        return Integer.toString(c.color) + c.fill + c.shape + c.count;
     }
 
     public static void main(String[] args) {
-        /*System.out.println(Math.floor((float) 7 / 3));*/
         StdDraw.setCanvasSize(1200, 600);
-        Card c = Game.generateCard(0);
-        c.drawCard();
-        Card.drawSquiggle(c.loc(),1);
+        Game game = new Game();
     }
 }
