@@ -2,7 +2,7 @@ package setgame;
 
 import edu.princeton.cs.introcs.StdDraw;
 
-public class Card{
+public class Card {
     private int color;
     private int fill;
     private int shape;
@@ -14,7 +14,7 @@ public class Card{
     private Point southWest;
     private Point southEast;
 
-    public Card(int c, int f, int s, int num, int b) {
+    Card(int c, int f, int s, int num, int b) {
         color = c;
         fill = f;
         shape = s;
@@ -30,14 +30,16 @@ public class Card{
     public void drawCard() {
         this.drawCardOutline();
         switch (this.color) {
-            case 0:
-                StdDraw.setPenColor(StdDraw.RED);
+            case 0: // red
+                StdDraw.setPenColor(255, 51, 51);
                 break;
-            case 1:
-                StdDraw.setPenColor(StdDraw.GREEN);
+            case 1: // green
+                StdDraw.setPenColor(29, 176, 88);
                 break;
-            case 2:
-                StdDraw.setPenColor(138, 43, 226);
+            case 2: // purple
+                StdDraw.setPenColor(65, 43, 145);
+                break;
+            default:
                 break;
         }
         switch (this.count) {
@@ -50,10 +52,12 @@ public class Card{
             case 2:
                 drawThree(loc, shape, fill);
                 break;
+            default:
+                break;
         }
     }
 
-    private Point indexToPoint(int b) {
+    private static Point indexToPoint(int b) {
         int i = (int) Math.floor((float) b / 3);
         int j = b % 3;
         // x-point scales by less than BOARD_X_DIM + 1 to spread cards out.
@@ -63,12 +67,14 @@ public class Card{
     }
 
     public void drawCardOutline() {
-        double[] xInd = new double[]{northWest.getX(), northEast.getX(), southEast.getX(), southWest.getX()};
-        double[] yInd = new double[]{northWest.getY(), northEast.getY(), southEast.getY(), southWest.getY()};
+        double[] xInd = new double[]{northWest.getX(), northEast.getX(),
+                southEast.getX(), southWest.getX()};
+        double[] yInd = new double[]{northWest.getY(), northEast.getY(),
+                southEast.getY(), southWest.getY()};
         StdDraw.polygon(xInd, yInd);
     }
 
-    public static void drawOne(Point p, int shape, int fill) {
+    private static void drawOne(Point p, int shape, int fill) {
         switch (shape) {
             case 0:
                 Card.drawOval(p, fill);
@@ -79,10 +85,12 @@ public class Card{
             case 2:
                 Card.drawSquiggle(p, fill);
                 break;
+            default:
+                break;
         }
     }
 
-    public static void drawTwo(Point p, int shape, int fill) {
+    private static void drawTwo(Point p, int shape, int fill) {
         Point left = new Point(p.getX() - 0.03, p.getY());
         Point right = new Point(p.getX() + 0.03, p.getY());
         switch (shape) {
@@ -98,10 +106,12 @@ public class Card{
                 Card.drawSquiggle(left, fill);
                 Card.drawSquiggle(right, fill);
                 break;
+            default:
+                break;
         }
     }
 
-    public static void drawThree(Point p, int shape, int fill) {
+    private static void drawThree(Point p, int shape, int fill) {
         Point left = new Point(p.getX() - 0.06, p.getY());
         Point right = new Point(p.getX() + 0.06, p.getY());
         switch (shape) {
@@ -120,10 +130,12 @@ public class Card{
                 Card.drawSquiggle(right, fill);
                 Card.drawSquiggle(p, fill);
                 break;
+            default:
+                break;
         }
     }
 
-    public static void drawDiamond(Point p, int fill) {
+    private static void drawDiamond(Point p, int fill) {
         Point west = new Point(p.getX() - 0.025, p.getY());
         Point north = new Point(p.getX(), p.getY() + 0.075);
         Point east = new Point(p.getX() + 0.025, p.getY());
@@ -144,19 +156,25 @@ public class Card{
                 Point eastNorth = new Point(p.getX() + 0.0166, p.getY() + 0.0252);
                 Point eastSouth = new Point(p.getX() + 0.0166, p.getY() - 0.0252);
                 Point eastSouthSouth = new Point(p.getX() + 0.0083, p.getY() - 0.0501);
-                StdDraw.line(westNorthNorth.getX(), westNorthNorth.getY(), eastNorthNorth.getX(), eastNorthNorth.getY());
-                StdDraw.line(westNorth.getX(), westNorth.getY(), eastNorth.getX(), eastNorth.getY());
+                StdDraw.line(westNorthNorth.getX(), westNorthNorth.getY(),
+                        eastNorthNorth.getX(), eastNorthNorth.getY());
+                StdDraw.line(westNorth.getX(), westNorth.getY(),
+                        eastNorth.getX(), eastNorth.getY());
                 StdDraw.line(west.getX(), west.getY(), east.getX(), east.getY());
-                StdDraw.line(westSouth.getX(), westSouth.getY(), eastSouth.getX(), eastSouth.getY());
-                StdDraw.line(westSouthSouth.getX(), westSouthSouth.getY(), eastSouthSouth.getX(), eastSouthSouth.getY());
+                StdDraw.line(westSouth.getX(), westSouth.getY(),
+                        eastSouth.getX(), eastSouth.getY());
+                StdDraw.line(westSouthSouth.getX(), westSouthSouth.getY(),
+                        eastSouthSouth.getX(), eastSouthSouth.getY());
                 break;
             case 2:
                 StdDraw.filledPolygon(xInd, yInd);
                 break;
+            default:
+                break;
         }
     }
 
-    public static void drawOval(Point p, int fill) {
+    private static void drawOval(Point p, int fill) {
         switch (fill) {
             case 0:
                 StdDraw.ellipse(p.getX(), p.getY(), 0.025, 0.075);
@@ -173,27 +191,35 @@ public class Card{
                 Point eastKindaSouth = Util.ellipseEquationNeg(0.023, p.getX(), p.getY());
                 Point eastSouth = Util.ellipseEquationNeg(0.0166, p.getX(), p.getY());
                 StdDraw.ellipse(p.getX(), p.getY(), 0.025, 0.075);
-                StdDraw.line(westNorth.getX(), westNorth.getY(), eastNorth.getX(), eastNorth.getY());
+                StdDraw.line(westNorth.getX(), westNorth.getY(),
+                        eastNorth.getX(), eastNorth.getY());
                 StdDraw.line(west.getX(), west.getY(), east.getX(), east.getY());
-                StdDraw.line(westSouth.getX(), westSouth.getY(), eastSouth.getX(), eastSouth.getY());
-                StdDraw.line(westKindaNorth.getX(), westKindaNorth.getY(), eastKindaNorth.getX(), eastKindaNorth.getY());
-                StdDraw.line(westKindaSouth.getX(), westKindaSouth.getY(), eastKindaSouth.getX(), eastKindaSouth.getY());
+                StdDraw.line(westSouth.getX(), westSouth.getY(),
+                        eastSouth.getX(), eastSouth.getY());
+                StdDraw.line(westKindaNorth.getX(), westKindaNorth.getY(),
+                        eastKindaNorth.getX(), eastKindaNorth.getY());
+                StdDraw.line(westKindaSouth.getX(), westKindaSouth.getY(),
+                        eastKindaSouth.getX(), eastKindaSouth.getY());
                 break;
             case 2:
                 StdDraw.filledEllipse(p.getX(), p.getY(), 0.025, 0.075);
                 break;
+            default:
+                break;
         }
     }
 
-    public static void drawSquiggle(Point p, int fill) {
+    private static void drawSquiggle(Point p, int fill) {
         Point northWest = new Point(p.getX() - 0.01, p.getY() + 0.075);
         Point southEast = new Point(p.getX() + 0.01, p.getY() - 0.075);
         Point east = new Point(p.getX() + 0.015, p.getY() + 0.01);
         Point eastSouth = new Point(p.getX() + 0.0025, p.getY() - 0.02);
         Point west = new Point(p.getX() - 0.015, p.getY() - 0.01);
         Point westNorth = new Point(p.getX() - 0.0025, p.getY() + 0.02);
-        double[] xInd = new double[]{northWest.getX(), east.getX(), eastSouth.getX(), southEast.getX(), west.getX(), westNorth.getX()};
-        double[] yInd = new double[]{northWest.getY(), east.getY(), eastSouth.getY(), southEast.getY(), west.getY(), westNorth.getY()};
+        double[] xInd = new double[]{northWest.getX(), east.getX(), eastSouth.getX(),
+                southEast.getX(), west.getX(), westNorth.getX()};
+        double[] yInd = new double[]{northWest.getY(), east.getY(), eastSouth.getY(),
+                southEast.getY(), west.getY(), westNorth.getY()};
         switch (fill) {
             case 0:
                 StdDraw.polygon(xInd, yInd);
@@ -208,6 +234,8 @@ public class Card{
                 break;
             case 2:
                 StdDraw.filledPolygon(xInd, yInd);
+                break;
+            default:
                 break;
 
         }
@@ -256,6 +284,7 @@ public class Card{
 
     public static void main(String[] args) {
         StdDraw.setCanvasSize(1200, 600);
+        StdDraw.setPenRadius(0.01);
         Game game = new Game();
     }
 }
