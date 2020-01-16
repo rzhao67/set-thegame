@@ -2,12 +2,10 @@ package setgame;
 
 import edu.princeton.cs.introcs.StdDraw;
 
-import java.util.HashSet;
-import java.util.Set;
-import java.util.Random;
+import java.util.*;
 
 public class Game {
-    private static Random rng = new Random();
+    private static Random rng = new Random(1);
     private static Card[] board = new Card[12];
     private static Set<Card> deployed = new HashSet<>(); // Cards that have been seen
 
@@ -20,7 +18,7 @@ public class Game {
     public static final int BOARD_Y_DIM = 3;
     private static final boolean GAME_OVER = false;
     public static int numCardsClicked;
-    public static Set<Card> clickedCards = new HashSet<>();
+    public static List<Card> clickedCards = new ArrayList<>();
 
     Game() {
         StdDraw.enableDoubleBuffering();
@@ -28,6 +26,20 @@ public class Game {
         displayBoard();
         StdDraw.show();
     }
+/*
+    private class ClickObject {
+        private double upperBound;
+        private double lowerBound;
+        private double leftBound;
+        private double rightBound;
+
+        ClickObject(double u, double l, double left, double right) {
+            upperBound = u;
+            lowerBound = l;
+            leftBound = left;
+            rightBound = right;
+        }
+    }*/
 
     private static void displayBoard() { // Call this method after each set is collected
         for (int i = 0; i < boardSize; i++) {
@@ -50,7 +62,7 @@ public class Game {
         return board;
     }
 
-    private void addCard(int boardIndex) {
+    private static void addCard(int boardIndex) {
         board[boardIndex] = generateCard(boardIndex);
     }
 
@@ -69,7 +81,7 @@ public class Game {
         }
     }
 
-    private boolean isSet(Card a, Card b, Card c) {
+    private static boolean isSet(Card a, Card b, Card c) {
         boolean colorDiff = (a.color() != b.color()) && (b.color() != c.color())
                 && (a.color() != c.color());
         boolean fillDiff = (a.fill() != b.fill()) && (b.fill() != c.fill())
@@ -90,7 +102,7 @@ public class Game {
                 && (shapeDiff || shapeSame) && (countDiff || countSame);
     }
 
-    public void collectSet(Card a, Card b, Card c) {
+    public static void collectSet(Card a, Card b, Card c) {
         removeCard(a);
         removeCard(b);
         removeCard(c);
@@ -106,8 +118,13 @@ public class Game {
     }
 
     private static void removeCard(Card c) {
+        c.borderHighlight();
         board[c.boardIndex()] = null;
         discard.add(c);
+        clickedCards.remove(c);
+        StdDraw.setPenColor(StdDraw.WHITE);
+        StdDraw.filledRectangle(c.loc().getX(), c.loc().getY(),
+                c.loc().getX() - c.getLeftBound(), c.loc().getY() - c.getLowerBound());
     }
 
     // Checks if the mouse click has clicked within the boundaries of a Card.
@@ -123,15 +140,34 @@ public class Game {
 
     public static void displaySubmit() {
         StdDraw.setPenColor(StdDraw.MAGENTA);
+        StdDraw.setPenRadius(0.005);
         StdDraw.text(0.5, 0.1, "SUBMIT");
+        StdDraw.setPenColor(StdDraw.BLACK);
+        StdDraw.rectangle(0.5, 0.105, 0.03, 0.025);
         StdDraw.show();
     }
 
     public static void clearSubmit() {
         StdDraw.setPenColor(StdDraw.WHITE);
-        StdDraw.setPenRadius(0.1);
+        StdDraw.setPenRadius(0.15);
         StdDraw.line(0.45, 0.1, 0.55, 0.1);
         StdDraw.show();
+    }
+
+    public static void checkClickSubmit(double x, double y) {
+        Card a = clickedCards.get(0);
+        Card b = clickedCards.get(1);
+        Card c = clickedCards.get(2);
+        if ((x > 0.47 && x < 0.53) && (y > 0.08 && y < 0.13)) {
+            if (isSet(a, b, c)) {
+                collectSet(a, b, c);
+                numCardsClicked = 0;
+            } else {
+                StdDraw.setPenColor(StdDraw.MAGENTA);
+                StdDraw.text(0.5, 0.05, "Not a set, dummy");
+                StdDraw.show();
+            }
+        }
     }
 
     public static void main(String[] args) {
@@ -141,13 +177,16 @@ public class Game {
         while (!GAME_OVER) {
             if (StdDraw.isMousePressed()) {
                 checkClickCard(StdDraw.mouseX(), StdDraw.mouseY());
-                StdDraw.pause(200);
             }
             if (numCardsClicked == 3) {
                 displaySubmit();
             }
             if (numCardsClicked != 3) {
                 clearSubmit();
+            }
+            StdDraw.pause(200);
+            if (StdDraw.isMousePressed() && numCardsClicked == 3) {
+                checkClickSubmit(StdDraw.mouseX(), StdDraw.mouseY());
             }
         }
     }

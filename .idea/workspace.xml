@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="266c54a1-f82f-4fc4-93ce-259f42548e99" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/setgame/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/setgame/Card.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/set/SetGame/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/set/SetGame/Game.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/setgame/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/setgame/Game.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -17,12 +18,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/setgame/Game.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="109">
-              <caret line="125" column="31" selection-start-line="125" selection-start-column="31" selection-end-line="125" selection-end-column="31" />
+            <state relative-caret-position="143">
+              <caret line="118" lean-forward="true" selection-start-line="118" selection-end-line="118" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#2065#2066#0" expanded="true" />
-                <element signature="e#2096#2097#0" expanded="true" />
+                <element signature="e#1531#1532#0" expanded="true" />
                 <element signature="e#1591#1592#0" expanded="true" />
               </folding>
             </state>
@@ -32,25 +32,22 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/setgame/Card.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="301" column="29" lean-forward="true" selection-start-line="301" selection-start-column="29" selection-end-line="301" selection-end-column="29" />
+            <state relative-caret-position="901">
+              <caret line="303" column="29" lean-forward="true" selection-start-line="303" selection-start-column="29" selection-end-line="303" selection-end-column="29" />
               <folding>
-                <element signature="e#10050#10051#0" expanded="true" />
-                <element signature="e#10082#10083#0" expanded="true" />
-                <element signature="e#10121#10122#0" expanded="true" />
-                <element signature="e#10153#10154#0" expanded="true" />
-                <element signature="e#10191#10192#0" expanded="true" />
-                <element signature="e#10223#10224#0" expanded="true" />
-                <element signature="e#10262#10263#0" expanded="true" />
-                <element signature="e#10294#10295#0" expanded="true" />
+                <element signature="e#10385#10386#0" expanded="true" />
                 <element signature="e#10418#10419#0" expanded="true" />
+                <element signature="e#10444#10445#0" expanded="true" />
                 <element signature="e#10470#10471#0" expanded="true" />
+                <element signature="e#10496#10497#0" expanded="true" />
                 <element signature="e#10524#10525#0" expanded="true" />
+                <element signature="e#10549#10550#0" expanded="true" />
                 <element signature="e#10576#10577#0" expanded="true" />
+                <element signature="e#10602#10603#0" expanded="true" />
                 <element signature="e#10630#10631#0" expanded="true" />
+                <element signature="e#10656#10657#0" expanded="true" />
                 <element signature="e#10684#10685#0" expanded="true" />
-                <element signature="e#10726#10727#0" expanded="true" />
-                <element signature="e#10759#10760#0" expanded="true" />
+                <element signature="e#11972#11973#0" expanded="true" />
                 <element signature="e#12049#12050#0" expanded="true" />
               </folding>
             </state>
@@ -61,7 +58,7 @@
         <entry file="file://$PROJECT_DIR$/src/setgame/Util.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="153">
-              <caret line="9" column="5" lean-forward="true" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
+              <caret line="9" column="5" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -82,6 +79,7 @@
       <find>c.loc()</find>
       <find>!</find>
       <find>!=</find>
+      <find>clickedCards</find>
     </findStrings>
     <replaceStrings>
       <replace>==</replace>
@@ -116,16 +114,17 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-11" />
-    <option name="y" value="-11" />
-    <option name="width" value="1943" />
-    <option name="height" value="1043" />
+    <option name="x" value="-12" />
+    <option name="y" value="-12" />
+    <option name="width" value="1944" />
+    <option name="height" value="1044" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -149,7 +148,6 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -157,7 +155,7 @@
     <property name="Repository.Attach.Annotations" value="false" />
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1579107837135" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1579156248425" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
     <property name="create.test.in.the.same.root" value="true" />
@@ -279,7 +277,7 @@
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1562753" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15870446" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -343,17 +341,7 @@
     <entry file="file://$PROJECT_DIR$/src/StdDraw.java" />
     <entry file="file://$PROJECT_DIR$/src/SetGame/BoardRenderer.java" />
     <entry file="file://$PROJECT_DIR$/src/SetGame/GameTest.java" />
-    <entry file="file://$PROJECT_DIR$/src/setgame/Engine.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-911">
-          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
-          <folding>
-            <element signature="e#1622#1623#0" expanded="true" />
-            <element signature="e#1660#1661#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/setgame/Engine.java" />
     <entry file="file://$PROJECT_DIR$/src/setgame/Point.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
@@ -383,31 +371,28 @@
     <entry file="file://$PROJECT_DIR$/src/setgame/Util.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
-          <caret line="9" column="5" lean-forward="true" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
+          <caret line="9" column="5" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/setgame/Card.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="301" column="29" lean-forward="true" selection-start-line="301" selection-start-column="29" selection-end-line="301" selection-end-column="29" />
+        <state relative-caret-position="901">
+          <caret line="303" column="29" lean-forward="true" selection-start-line="303" selection-start-column="29" selection-end-line="303" selection-end-column="29" />
           <folding>
-            <element signature="e#10050#10051#0" expanded="true" />
-            <element signature="e#10082#10083#0" expanded="true" />
-            <element signature="e#10121#10122#0" expanded="true" />
-            <element signature="e#10153#10154#0" expanded="true" />
-            <element signature="e#10191#10192#0" expanded="true" />
-            <element signature="e#10223#10224#0" expanded="true" />
-            <element signature="e#10262#10263#0" expanded="true" />
-            <element signature="e#10294#10295#0" expanded="true" />
+            <element signature="e#10385#10386#0" expanded="true" />
             <element signature="e#10418#10419#0" expanded="true" />
+            <element signature="e#10444#10445#0" expanded="true" />
             <element signature="e#10470#10471#0" expanded="true" />
+            <element signature="e#10496#10497#0" expanded="true" />
             <element signature="e#10524#10525#0" expanded="true" />
+            <element signature="e#10549#10550#0" expanded="true" />
             <element signature="e#10576#10577#0" expanded="true" />
+            <element signature="e#10602#10603#0" expanded="true" />
             <element signature="e#10630#10631#0" expanded="true" />
+            <element signature="e#10656#10657#0" expanded="true" />
             <element signature="e#10684#10685#0" expanded="true" />
-            <element signature="e#10726#10727#0" expanded="true" />
-            <element signature="e#10759#10760#0" expanded="true" />
+            <element signature="e#11972#11973#0" expanded="true" />
             <element signature="e#12049#12050#0" expanded="true" />
           </folding>
         </state>
@@ -415,12 +400,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/setgame/Game.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="109">
-          <caret line="125" column="31" selection-start-line="125" selection-start-column="31" selection-end-line="125" selection-end-column="31" />
+        <state relative-caret-position="143">
+          <caret line="118" lean-forward="true" selection-start-line="118" selection-end-line="118" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2065#2066#0" expanded="true" />
-            <element signature="e#2096#2097#0" expanded="true" />
+            <element signature="e#1531#1532#0" expanded="true" />
             <element signature="e#1591#1592#0" expanded="true" />
           </folding>
         </state>
