@@ -14,9 +14,9 @@ public class Game {
     private static int boardSize = 12;
     private static final int WIDTH = 1200;
     private static final int HEIGHT = 600;
-    public static final int BOARD_X_DIM = 4;
+    public static int BOARD_X_DIM = 4;
     public static final int BOARD_Y_DIM = 3;
-    private static final boolean GAME_OVER = false;
+    private static boolean GAME_OVER = false;
     public static int numCardsClicked;
     public static List<Card> clickedCards = new ArrayList<>();
 
@@ -26,20 +26,6 @@ public class Game {
         displayBoard();
         StdDraw.show();
     }
-/*
-    private class ClickObject {
-        private double upperBound;
-        private double lowerBound;
-        private double leftBound;
-        private double rightBound;
-
-        ClickObject(double u, double l, double left, double right) {
-            upperBound = u;
-            lowerBound = l;
-            leftBound = left;
-            rightBound = right;
-        }
-    }*/
 
     private static void displayBoard() { // Call this method after each set is collected
         for (int i = 0; i < boardSize; i++) {
@@ -170,6 +156,21 @@ public class Game {
         }
     }
 
+    public static boolean existSet() {
+        boolean existSet = false;
+        for (int i = 0; i < boardSize; i++) {
+            for (int j = 0; j < boardSize; j++) {
+                for (int k = 0; k < boardSize; k++) {
+                    if (isSet(board[i], board[j], board[k])) {
+                        existSet = true;
+                    }
+                }
+            }
+        }
+        System.out.println(existSet);
+        return existSet;
+    }
+
     public static void main(String[] args) {
         StdDraw.setCanvasSize(WIDTH, HEIGHT);
         StdDraw.setPenRadius(0.005);
@@ -177,16 +178,20 @@ public class Game {
         while (!GAME_OVER) {
             if (StdDraw.isMousePressed()) {
                 checkClickCard(StdDraw.mouseX(), StdDraw.mouseY());
+                if (numCardsClicked == 3) {
+                    displaySubmit();
+                }
+                if (numCardsClicked != 3) {
+                    clearSubmit();
+                }
+                StdDraw.pause(200);
             }
-            if (numCardsClicked == 3) {
-                displaySubmit();
-            }
-            if (numCardsClicked != 3) {
-                clearSubmit();
-            }
-            StdDraw.pause(200);
             if (StdDraw.isMousePressed() && numCardsClicked == 3) {
                 checkClickSubmit(StdDraw.mouseX(), StdDraw.mouseY());
+            }
+            if (discard.size() >= 69 && !existSet()) {
+                GAME_OVER = true;
+                System.out.println("Game over");
             }
         }
     }
